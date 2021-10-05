@@ -8,6 +8,7 @@
         v-for="friend in friends"
         :key="friend.id"
         :friend="friend"
+        @toggle-favorite="toggleFavorite"
       ></friend-contact>
     </ul>
   </section>
@@ -30,14 +31,22 @@ export default class App extends Vue {
       name: "Manuel Lorenz",
       phone: "0123 45678 90",
       email: "manuel@localhost.com",
+      isFavorite: true,
     },
     {
       id: 2,
       name: "Julie Jones",
       phone: "0987 654421 21",
       email: "julie@localhost.com",
+      isFavorite: false,
     },
   ]
+  toggleFavorite(friendId: number) {
+    const identifiedFriend: Friend = this.friends.find(
+      (friend) => friend.id === friendId
+    )!
+    identifiedFriend.isFavorite = !identifiedFriend.isFavorite
+  }
 }
 </script>
 

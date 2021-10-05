@@ -1,6 +1,7 @@
 <template>
   <li>
-    <h2>{{ friend.name }}</h2>
+    <h2>{{ friend.name }} {{ friend.isFavorite ? "(Favorite)" : "" }}</h2>
+    <button @click="toggleFavorite">Toggle Favorite</button>
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }} Details
     </button>
@@ -29,6 +30,10 @@ export default class FriendContact extends Vue {
 
   toggleDetails() {
     this.detailsAreVisible = !this.detailsAreVisible
+  }
+  toggleFavorite() {
+    console.log("Not implemented")
+    this.$emit("toggle-favorite", this.friend.id)
   }
 }
 </script>
