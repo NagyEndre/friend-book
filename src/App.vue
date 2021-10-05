@@ -4,15 +4,25 @@
       <h1>My Friends</h1>
     </header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <friend-contact
+        name="Endi"
+        id="1"
+        email="tbd@kuka.com"
+        phone="324232479243"
+      ></friend-contact>
+      <friend-contact
+        name="Evan"
+        id="2"
+        email="tbd@kuka.com"
+        phone="111112222233334444"
+      ></friend-contact>
     </ul>
   </section>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import FriendContact from "./components/FriendContact.vue";
+import { Component, Vue } from "vue-property-decorator"
+import FriendContact from "./components/FriendContact.vue"
 
 @Component({
   components: {
@@ -33,7 +43,7 @@ export default class App extends Vue {
       phone: "0987 654421 21",
       email: "julie@localhost.com",
     },
-  ];
+  ]
 }
 </script>
 
