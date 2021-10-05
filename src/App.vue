@@ -5,16 +5,9 @@
     </header>
     <ul>
       <friend-contact
-        name="Endi"
-        id="1"
-        email="tbd@kuka.com"
-        phone="324232479243"
-      ></friend-contact>
-      <friend-contact
-        name="Evan"
-        id="2"
-        email="tbd@kuka.com"
-        phone="111112222233334444"
+        v-for="friend in friends"
+        :key="friend.id"
+        :friend="friend"
       ></friend-contact>
     </ul>
   </section>
@@ -23,6 +16,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
 import FriendContact from "./components/FriendContact.vue"
+import { Friend } from "./Friend"
 
 @Component({
   components: {
@@ -30,15 +24,15 @@ import FriendContact from "./components/FriendContact.vue"
   },
 })
 export default class App extends Vue {
-  friends = [
+  friends: Friend[] = [
     {
-      id: "manuel",
+      id: 1,
       name: "Manuel Lorenz",
       phone: "0123 45678 90",
       email: "manuel@localhost.com",
     },
     {
-      id: "julie",
+      id: 2,
       name: "Julie Jones",
       phone: "0987 654421 21",
       email: "julie@localhost.com",

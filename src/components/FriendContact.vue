@@ -1,17 +1,17 @@
 <template>
   <li>
-    <h2>{{ name }}</h2>
+    <h2>{{ friend.name }}</h2>
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }} Details
     </button>
     <ul v-if="detailsAreVisible">
       <li>
         <strong>Phone:</strong>
-        {{ phone }}
+        {{ friend.phone }}
       </li>
       <li>
         <strong>Email:</strong>
-        {{ email }}
+        {{ friend.email }}
       </li>
     </ul>
   </li>
@@ -19,15 +19,14 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator"
+import { Friend } from "../Friend"
 
 @Component
 export default class FriendContact extends Vue {
   detailsAreVisible = true
-  @Prop() name!: string
-  @Prop() id!: number
-  @Prop() phone!: string
-  @Prop() email!: string
-  
+
+  @Prop({ type: Object, required: true }) friend!: Friend
+
   toggleDetails() {
     this.detailsAreVisible = !this.detailsAreVisible
   }
