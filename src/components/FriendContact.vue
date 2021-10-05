@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from "vue-property-decorator"
+import { Component, Vue, Prop, Emit } from "vue-property-decorator"
 import { Friend } from "../Friend"
 
 @Component
@@ -31,9 +31,9 @@ export default class FriendContact extends Vue {
   toggleDetails() {
     this.detailsAreVisible = !this.detailsAreVisible
   }
+  @Emit("toggle-favorite")
   toggleFavorite() {
-    console.log("Not implemented")
-    this.$emit("toggle-favorite", this.friend.id)
+    return this.friend.id
   }
 }
 </script>
