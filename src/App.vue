@@ -1,20 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  <section>
+    <header>
+      <h1>My Friends</h1>
+    </header>
+    <ul>
+      <friend-contact></friend-contact>
+      <friend-contact></friend-contact>
+    </ul>
+  </section>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "./components/HelloWorld.vue";
+import FriendContact from "./components/FriendContact.vue";
 
 @Component({
   components: {
-    HelloWorld,
+    FriendContact,
   },
 })
-export default class App extends Vue {}
+export default class App extends Vue {
+  friends = [
+    {
+      id: "manuel",
+      name: "Manuel Lorenz",
+      phone: "0123 45678 90",
+      email: "manuel@localhost.com",
+    },
+    {
+      id: "julie",
+      name: "Julie Jones",
+      phone: "0987 654421 21",
+      email: "julie@localhost.com",
+    },
+  ];
+}
 </script>
 
 <style>
@@ -25,5 +45,30 @@ export default class App extends Vue {}
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: "Jost", sans-serif;
+}
+body {
+  margin: 0;
+}
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 3rem auto;
+  border-radius: 10px;
+  padding: 1rem;
+  background-color: #58004d;
+  color: white;
+  text-align: center;
+  width: 90%;
+  max-width: 40rem;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 </style>
