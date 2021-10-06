@@ -32,9 +32,9 @@ import NewFriend from "./components/NewFriend.vue"
 export default class App extends Vue {
   friends: Friend[] = [
     {
-      id: "id",
+      id: new Date().toISOString(),
       name: "John",
-      email: "asdf@localhost.com",
+      email: "john@localhost.com",
       phone: "134234-1243-2342",
       isFavorite: true,
     },

@@ -3,19 +3,19 @@
     <h2>Add new friend</h2>
     <div>
       <label for="">Name</label>
-      <input type="text" v-model="name" />
+      <input type="text" v-model.lazy="name" />
     </div>
     <div>
       <label for="">Phone</label>
-      <input type="tel" v-model="phoneNumber" />
+      <input type="tel" v-model.lazy="phoneNumber" />
     </div>
     <div>
       <label for="">Email</label>
-      <input type="email" v-model="email" />
+      <input type="email" v-model.lazy="email" />
     </div>
     <div>
       <label for="">Favorite</label>
-      <input type="checkbox" v-model="isFavorite" />
+      <input type="checkbox" v-model.lazy="isFavorite" />
     </div>
     <button type="submit">Add</button>
   </form>
