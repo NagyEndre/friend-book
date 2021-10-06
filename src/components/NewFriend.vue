@@ -30,18 +30,18 @@ export default class NewFriend extends Vue {
   phoneNumber = ""
   email = ""
   isFavorite = false
-  id = -1
 
   @Emit()
   submitNewFriend() {
     const newFriend: Friend = {
       name: this.name,
-      id: this.id,
+      id: new Date().toISOString(),
       email: this.email,
       phone: this.phoneNumber,
       isFavorite: this.isFavorite,
     }
     this.resetInputs()
+    console.log(newFriend)
     return newFriend
   }
   private resetInputs() {
@@ -49,7 +49,6 @@ export default class NewFriend extends Vue {
     this.phoneNumber = ""
     this.email = ""
     this.isFavorite = false
-    this.id = -1
   }
 }
 </script>

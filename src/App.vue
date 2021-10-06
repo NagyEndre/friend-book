@@ -30,7 +30,7 @@ import NewFriend from "./components/NewFriend.vue"
 })
 export default class App extends Vue {
   friends: Friend[] = []
-  toggleFavorite(friendId: number) {
+  toggleFavorite(friendId: string) {
     const identifiedFriend: Friend = this.friends.find(
       (friend) => friend.id === friendId
     )!
@@ -100,6 +100,7 @@ button {
   color: white;
   padding: 0.05rem 1rem;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+  margin: 0 0.25rem;
 }
 button:hover,
 button:active {
