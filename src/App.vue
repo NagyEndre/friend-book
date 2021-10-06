@@ -108,9 +108,10 @@ button {
   font: inherit;
   cursor: pointer;
   border: 1px solid mediumblue;
+  border-radius: 0.25rem;
   background-color: mediumblue;
   color: white;
-  padding: 0.05rem 1rem;
+  padding: 0.3rem 1rem;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
   margin: 0 0.25rem;
 }

@@ -57,6 +57,8 @@ export default class NewFriend extends Vue {
 input {
   font: inherit;
   padding: 0.15rem;
+  border: 1px solid lightgray;
+  border-radius: 4px;
 }
 label {
   font-weight: bold;
