@@ -53,3 +53,20 @@ export default class NewFriend extends Vue {
   }
 }
 </script>
+
+<style scoped>
+input {
+  font: inherit;
+  padding: 0.15rem;
+}
+label {
+  font-weight: bold;
+  margin-right: 1rem;
+  width: 7rem;
+  display: inline-block;
+}
+form div {
+  margin: 1rem 0;
+}
+</style>
+>

@@ -39,7 +39,8 @@ export default class FriendContact extends Vue {
 }
 </script>
 
-<style>
-
-
+<style scoped>
+li li {
+  margin: 0.5rem 0;
+}
 </style>
