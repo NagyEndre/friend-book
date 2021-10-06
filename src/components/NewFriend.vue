@@ -21,8 +21,8 @@
   </form>
 </template>
 <script lang="ts">
+import { Friend } from "@/Friend"
 import { Vue, Component, Emit } from "vue-property-decorator"
-import { Friend } from "../Friend"
 
 @Component
 export default class NewFriend extends Vue {
@@ -41,8 +41,15 @@ export default class NewFriend extends Vue {
       phone: this.phoneNumber,
       isFavorite: this.isFavorite,
     }
-    console.log(newFriend)
+    this.resetInputs()
     return newFriend
+  }
+  private resetInputs() {
+    this.name = ""
+    this.phoneNumber = ""
+    this.email = ""
+    this.isFavorite = false
+    this.id = -1
   }
 }
 </script>
