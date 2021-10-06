@@ -5,6 +5,7 @@
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }} Details
     </button>
+    <button @click="deleteFriend" class="danger">Delete</button>
     <ul v-if="detailsAreVisible">
       <li>
         <strong>Phone:</strong>
@@ -28,13 +29,18 @@ export default class FriendContact extends Vue {
 
   @Prop({ type: Object, required: true }) friend!: Friend
 
-  @Emit("toggle-favorite")
+  @Emit()
   toggleFavorite() {
     return this.friend.id
   }
 
   toggleDetails() {
     this.detailsAreVisible = !this.detailsAreVisible
+  }
+
+  @Emit()
+  deleteFriend() {
+    return this.friend.id
   }
 }
 </script>

@@ -10,6 +10,7 @@
         :key="friend.id"
         :friend="friend"
         @toggle-favorite="toggleFavorite"
+        @delete-friend="onDeleteFriend"
         class="card"
       ></friend-contact>
     </ul>
@@ -29,7 +30,15 @@ import NewFriend from "./components/NewFriend.vue"
   },
 })
 export default class App extends Vue {
-  friends: Friend[] = []
+  friends: Friend[] = [
+    {
+      id: "id",
+      name: "John",
+      email: "asdf@localhost.com",
+      phone: "134234-1243-2342",
+      isFavorite: true,
+    },
+  ]
   toggleFavorite(friendId: string) {
     const identifiedFriend: Friend = this.friends.find(
       (friend) => friend.id === friendId
@@ -39,6 +48,9 @@ export default class App extends Vue {
   onNewFriendSubmitted(newFriend: Friend) {
     console.log("onNewFriendSubmitted")
     this.friends.unshift(newFriend)
+  }
+  onDeleteFriend(friendId: string) {
+    this.friends = this.friends.filter((friend) => friend.id !== friendId)
   }
 }
 </script>
@@ -107,5 +119,13 @@ button:active {
   background-color: royalblue;
   border-color: royalblue;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+.danger {
+  background-color: red;
+  border: 1px solid red;
+}
+.danger:hover {
+  background-color: lightcoral;
+  border-color: lightcoral;
 }
 </style>
