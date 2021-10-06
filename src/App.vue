@@ -1,14 +1,16 @@
 <template>
-  <section>
+  <section id="app">
     <header>
       <h1>My Friends</h1>
     </header>
+    <new-friend class="card" @submit-new-friend="onNewFriendSubmitted" />
     <ul>
       <friend-contact
         v-for="friend in friends"
         :key="friend.id"
         :friend="friend"
         @toggle-favorite="toggleFavorite"
+        class="card"
       ></friend-contact>
     </ul>
   </section>
@@ -18,34 +20,25 @@
 import { Component, Vue } from "vue-property-decorator"
 import FriendContact from "./components/FriendContact.vue"
 import { Friend } from "./Friend"
+import NewFriend from "./components/NewFriend.vue"
 
 @Component({
   components: {
     FriendContact,
+    NewFriend,
   },
 })
 export default class App extends Vue {
-  friends: Friend[] = [
-    {
-      id: 1,
-      name: "Manuel Lorenz",
-      phone: "0123 45678 90",
-      email: "manuel@localhost.com",
-      isFavorite: true,
-    },
-    {
-      id: 2,
-      name: "Julie Jones",
-      phone: "0987 654421 21",
-      email: "julie@localhost.com",
-      isFavorite: false,
-    },
-  ]
+  friends: Friend[] = []
   toggleFavorite(friendId: number) {
     const identifiedFriend: Friend = this.friends.find(
       (friend) => friend.id === friendId
     )!
     identifiedFriend.isFavorite = !identifiedFriend.isFavorite
+  }
+  onNewFriendSubmitted(newFriend: Friend) {
+    console.log("onNewFriendSubmitted")
+    this.friends.unshift(newFriend)
   }
 }
 </script>
@@ -73,8 +66,17 @@ header {
   margin: 3rem auto;
   border-radius: 10px;
   padding: 1rem;
-  background-color: #58004d;
+  background-color: royalblue;
   color: white;
+  text-align: center;
+  width: 90%;
+  max-width: 40rem;
+}
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 1rem auto;
+  border-radius: 10px;
+  padding: 1rem;
   text-align: center;
   width: 90%;
   max-width: 40rem;
@@ -83,5 +85,26 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+}
+h2 {
+  font-size: 2rem;
+  border-bottom: 4px solid #ccc;
+  color: mediumblue;
+  margin: 0 0 1rem 0;
+}
+button {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid mediumblue;
+  background-color: mediumblue;
+  color: white;
+  padding: 0.05rem 1rem;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+}
+button:hover,
+button:active {
+  background-color: royalblue;
+  border-color: royalblue;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
 }
 </style>
